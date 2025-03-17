@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene background="color: black">
+
+        <a-entity id="stars"></a-entity>
+
+        <script>
+            
+            for (let i = 0; i < 100; i++) {
+                let star = document.createElement('a-sphere');
+                let x = (Math.random() - 0.5) * 20;
+                let y = (Math.random() - 0.5) * 10;
+                let z = (Math.random() - 0.5) * 15 - 5;
+
+                star.setAttribute('position', ${x} ${y} ${z});
+                star.setAttribute('radius', '0.05');
+                star.setAttribute('color', 'white');
+                document.getElementById('stars').appendChild(star);
+            }
+        </script>
+
+        <a-sphere position="0 2 -5" radius="1.5" color="white"
+                  animation="property: rotation; to: 0 360 0; loop: true; dur: 15000">
+        </a-sphere>
+
+        <a-light type="point" intensity="1.2" position="-3 3 -3" color="white"></a-light>
+
+        <a-sphere position="10 5 -15" radius="2" color="yellow"
+                  animation="property: rotation; to: 0 360 0; loop: true; dur: 20000">
+            <a-light type="point" intensity="2" color="yellow"></a-light>
+        </a-sphere>
+
+        <a-entity position="0 2 4">
+            <a-camera></a-camera>
+        </a-entity>
+
+    </a-scene>
+</body>
+</html>
