@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-container">
+        <h2>Search with Prompt</h2>
+        <input type="text" id="searchInput" placeholder="Enter your prompt...">
+        <button onclick="searchPrompt()">Search</button>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        function searchPrompt() {
+            let query = document.getElementById('searchInput').value;
+            let resultsDiv = document.getElementById('results');
+            if (query.trim() === '') {
+                resultsDiv.innerHTML = "<p>Please enter a prompt.</p>";
+                return;
+            }
+            resultsDiv.innerHTML = `<p>Searching for: <strong>${query}</strong></p>`;
+            
+        }
+    </script>
+</body>
+</html>
